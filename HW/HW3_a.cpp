@@ -44,7 +44,7 @@ void BubbleSort(int arr[]) {
                 swap(arr, j-1, j);          
         }
         PRINT(arr);
-    }    
+    }
 }
 void InsertionSort(int arr[]) {
     int target;
