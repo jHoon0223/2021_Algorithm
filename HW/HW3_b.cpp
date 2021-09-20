@@ -1,9 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#define N 8
-
-using namespace std;
+#define N 1000
 
 double arr[N], arr_SEL[N], arr_BUB[N], arr_INS[N],
         arr_MER[N], arr_QUI[N], arr_HEA[N], mergeSort[N];
@@ -107,7 +105,6 @@ void QuickSort(double arr[], int start, int end) {
 
     int left = start+1;
     int right = end;
-    double tmp;
 
     while (left <= right) {
         while (arr[left] <= arr[pivot]) left++;
@@ -172,21 +169,21 @@ int main(void) {
     SelectionSort(arr_SEL);
     end_t = clock();
     total_t_SEL = (double)(end_t - start_t) / CLOCKS_PER_SEC;
-    printf("\n\n");
+    printf("\n");
 
     printf(">>>>> Bubble Sort <<<<<\n");    
     start_t = clock();
     BubbleSort(arr_BUB);
     end_t = clock();
     total_t_BUB = (double)(end_t - start_t) / CLOCKS_PER_SEC;
-    printf("\n\n");
+    printf("\n");
 
     printf(">>>>> Insertion Sort <<<<<\n");    
     start_t = clock();
     InsertionSort(arr_INS);
     end_t = clock();
     total_t_INS = (double)(end_t - start_t) / CLOCKS_PER_SEC;
-    printf("\n\n");
+    printf("\n");
 
     printf(">>>>> Merge Sort <<<<<\n");    
     start_t = clock();
@@ -194,7 +191,7 @@ int main(void) {
     PRINT(arr_MER);
     end_t = clock();
     total_t_MER = (double)(end_t - start_t) / CLOCKS_PER_SEC;
-    printf("\n\n");
+    printf("\n");
 
     printf(">>>>> Quick Sort <<<<<\n");    
     start_t = clock();
@@ -202,22 +199,24 @@ int main(void) {
     PRINT(arr_QUI);
     end_t = clock();
     total_t_QUI = (double)(end_t - start_t) / CLOCKS_PER_SEC;
-    printf("\n\n");
+    printf("\n");
 
     printf(">>>>> Heap Sort <<<<<\n");    
     start_t = clock();
     HeapSort(arr_HEA);
     end_t = clock();
     total_t_HEA = (double)(end_t - start_t) / CLOCKS_PER_SEC;
-    printf("\n\n");
+    printf("\n");
 
     printf(">>>>> TIME <<<<<\n");
+    printf("When n is ( %d ), The execution time for each algorithm is as follows.\n", N);
+    printf("----------------------------------------------------------------------\n");
     printf("Selection Sort : %f\n", total_t_SEL);
     printf("Bubble Sort : %f\n", total_t_BUB);
     printf("Insertion Sort : %f\n", total_t_INS);
     printf("Merge Sort : %f\n", total_t_MER);
     printf("Quick Sort : %f\n", total_t_QUI);
-    printf("HEAP Sort : %f\n", total_t_HEA);
+    printf("HEAP Sort : %f\n\n", total_t_HEA);
 
     return 0;
 }
