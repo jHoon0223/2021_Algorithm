@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <iostream>
 #define N 8
 
 using namespace std;
@@ -186,15 +185,6 @@ int main(void) {
     printf(">>>>> Heap Sort <<<<<\n");    
     HeapSort(arr_HEA);
     printf("\n");
-
-    //SelectionSort(arr);
-    
-    //InsertionSort(arr);
-    /*MergeSort(arr, 0, N-1);
-    PRINT(arr);*/
-    /*QuickSort(arr, 0, N-1);
-    PRINT(arr);*/
-    //HeapSort(arr);
 
     return 0;
 }
