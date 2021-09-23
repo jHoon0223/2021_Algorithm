@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#define N 1000  //n값 정의
+#define N 10000  //n값 정의
 
 double arr[N], arr_SEL[N], arr_BUB[N], arr_INS[N],
         arr_MER[N], arr_QUI[N], arr_HEA[N], mergeSort[N];
@@ -220,12 +220,12 @@ int main(void) {
     printf(">>>>> TIME <<<<<\n");
     printf("When n is ( %d ), The execution time for each algorithm is as follows.\n", N);
     printf("----------------------------------------------------------------------\n");
-    printf("Selection Sort : %f\n", total_t_SEL);
-    printf("Bubble Sort : %f\n", total_t_BUB);
-    printf("Insertion Sort : %f\n", total_t_INS);
-    printf("Merge Sort : %f\n", total_t_MER);
-    printf("Quick Sort : %f\n", total_t_QUI);
-    printf("HEAP Sort : %f\n\n", total_t_HEA);
+    printf("Selection Sort : %.3f ms\n", total_t_SEL);
+    printf("Bubble Sort : %.3f ms\n", total_t_BUB);
+    printf("Insertion Sort : %.3f ms\n", total_t_INS);
+    printf("Merge Sort : %.3f ms\n", total_t_MER);
+    printf("Quick Sort : %.3f ms\n", total_t_QUI);
+    printf("HEAP Sort : %.3f ms\n\n", total_t_HEA);
     //n에 따른 sorting Algorithm의 수행시간 출력
 
     return 0;
