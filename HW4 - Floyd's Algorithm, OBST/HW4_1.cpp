@@ -61,7 +61,7 @@ void PRINT(const int arr[N][N]) {
 int main() {
     Floyd(N, W, D, P);
     
-    PRINT(W);
+    //PRINT(W);
     PRINT(D);
     PRINT(P);
 

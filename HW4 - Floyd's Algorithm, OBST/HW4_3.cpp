@@ -11,7 +11,7 @@ typedef struct NODE {
 } node;
 
 double A[N][N];
-double R[N][N];
+int R[N][N];
 const double P[7] = { 0, 0.05, 0.15, 0.05, 0.35, 0.05, 0.35 };
 const char KEY[6][10] = { {"CASE"},{"ELSE"},{"END"},{"IF"},{"OF"},{"THEN"} };
 
@@ -79,7 +79,13 @@ void PRINT_TREE(node* head) {
 int main() {
     OBST(N-1);
     PRINT(A, 'A');
-    PRINT(R, 'R');
+    //PRINT(R, 'R');
+    for (int i = 1; i < N; i++) {
+        for (int j = i; j < N; j++) {
+            printf("R[%d][%d] : %d\n", i, j, R[i][j]);
+        }
+    }
+    printf("-------------------------\n");
 
     node* Tree = TREE(1,6);
     PRINT_TREE(Tree);
