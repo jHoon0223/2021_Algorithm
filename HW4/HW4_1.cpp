@@ -3,13 +3,13 @@
 #define N 8
 #define INF 99999
 const int W[N][N] = { {0,0,0,0,0,0,0,0},
-                {0,0,INF,INF,INF,INF,10},
-                {0,INF,0,1,12,INF,INF,INF},
-                {0,19,2,0,15,5,INF,5},
-                {0,INF,INF,INF,0,6,INF,INF},
-                {0,INF,INF,18,INF,0,3,INF},
-                {0,10,INF,INF,INF,4,0,INF},
-                {0,INF,INF,8,INF,INF,INF,0} };
+                    {0,0,4,INF,INF,INF,10,INF,},
+                    {0,3,0,INF,18,INF,INF,INF},
+                    {0,INF,6,0,INF,INF,INF,INF},
+                    {0,INF,5,15,0,2,19,5},
+                    {0,INF,INF,12,1,0,INF,INF},
+                    {0,INF,INF,INF,INF,INF,0,10},
+                    {0,INF,INF,INF,8,INF,INF,0} };
 int P[N][N];
 int D[N][N];
 
@@ -65,7 +65,7 @@ int main() {
     PRINT(D);
     PRINT(P);
 
-    Path(7, 4);
+    Path(7, 3);
 
     return 0;
 }
