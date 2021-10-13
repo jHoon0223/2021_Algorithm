@@ -8,18 +8,22 @@ typedef struct NODE {
     struct NODE* left;
     struct NODE* right;
     char key[10];
-} node;
+} node;     //그래프로 만들기 위한 구조체
 
 double A[N][N];
 int R[N][N];
 const double P[7] = { 0, 0.05, 0.15, 0.05, 0.35, 0.05, 0.35 };
 const char KEY[6][10] = { {"CASE"},{"ELSE"},{"END"},{"IF"},{"OF"},{"THEN"} };
+//A : Optimal Binary Search Tree 의 경로
+//R : 최솟값을 갖는 k값 저장
+//P : KEY값들의 발생빈도
+//KEY : KEY값
 
 double SUM(int begin, int end) {
     double total = 0;
     for (int i = begin; i <= end; i++) total += P[i];
     return total;
-}
+}   //입력된 index를 기준으로 Key값들을 순회하며 sum값 return
 void OBST(int n) {
     double min;
 
@@ -46,7 +50,7 @@ void OBST(int n) {
             A[i][j] = min;
         }
     }
-}
+}   //Optimal Binary Search Tree Algorithm
 node* TREE(int i, int j) {
     int k = R[i][j];
     if (k == 0) return NULL;
@@ -57,7 +61,8 @@ node* TREE(int i, int j) {
         p->right = TREE(k+1, j);
         return p;
     }
-}
+}   //트리 구성 함수. 재귀적 구조로 정의하여 한번에 구성될 수 있도록 한다.
+
 void PRINT(double arr[N][N], char c) {
     for (int i = 1; i < N; i++) {
         for (int j = i; j < N; j++) {
@@ -74,12 +79,12 @@ void PRINT_TREE(node* head) {
         PRINT_TREE(head->right);
         return;
     }
-}
+}   //각종 출력 함수
 
 int main() {
     OBST(N-1);
+
     PRINT(A, 'A');
-    //PRINT(R, 'R');
     for (int i = 1; i < N; i++) {
         for (int j = i; j < N; j++) {
             printf("R[%d][%d] : %d\n", i, j, R[i][j]);

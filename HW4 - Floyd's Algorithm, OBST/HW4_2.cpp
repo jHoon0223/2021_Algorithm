@@ -12,29 +12,30 @@ const int W[N][N] = { {0,0,0,0,0,0,0,0},
                     {0,INF,INF,8,INF,INF,INF,0} };
 int P[N][N];
 int D[N][N];
+//W : 가중치 포함 그래프
+//P : 정점의 가장 큰 인덱스 행렬
+//D : 최단경로 행렬
 
 void Floyd(int n, const int W[N][N], int D[N][N], int P[N][N]) {
-    int i, j, k;
-
-    for (i = 1; i < n; i++) {
-        for (j = 1; j < n; j++) {
+    for (int i = 1; i < n; i++) {
+        for (int j = 1; j < n; j++) {
             P[i][j] = 0;
         }
-    }
+    }   //0으로 초기화
 
-    for (i = 1; i < N; i++) {
-        for (j = 1; j < N; j++) {
+    for (int i = 1; i < N; i++) {
+        for (int j = 1; j < N; j++) {
             D[i][j] = W[i][j];
         }
-    }
+    }   //D = W
 
-    for (k = 1; k < n; k++) {
-        for (i = 1; i < n; i++) {
-            for (j = 1; j < n; j++) {
+    for (int k = 1; k < n; k++) {
+        for (int i = 1; i < n; i++) {
+            for (int j = 1; j < n; j++) {
                 if (D[i][k] + D[k][j] < D[i][j]) {
                     P[i][j] = k;
                     D[i][j] = D[i][k] + D[k][j];
-                }
+                }   //경로의 최솟값을 찾아 행렬에 저장
             }
         }
     }
@@ -47,7 +48,7 @@ void Path(int a, int b) {
         printf("v%d \n", P[a][b]);
         Path(P[a][b], b);
     }
-}
+}   //최단 경로 계산 후 출력
 void PRINT(const int arr[N][N]) {
     for (int i = 1; i < N; i++) {
         for (int j = 1; j < N; j++) {
@@ -56,12 +57,12 @@ void PRINT(const int arr[N][N]) {
         printf("\n");
     }
     printf("-------------------------\n");
-}
+}   //행렬 출력
 
 int main() {
     Floyd(N, W, D, P);
     
-    PRINT(W);
+    //PRINT(W);
     PRINT(D);
     PRINT(P);
 
