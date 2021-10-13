@@ -65,7 +65,7 @@ int main() {
     PRINT(D);
     PRINT(P);
 
-    Path(1, 3);
+    Path(7, 3);
 
     return 0;
 }
