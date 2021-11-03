@@ -13,8 +13,9 @@ int W[N][N] = { {0,32,INF,17,INF,INF,INF,INF,INF,INF},
                 {INF,INF,INF,3,INF,INF,59,0,4,INF},
                 {INF,INF,INF,INF,25,INF,INF,4,0,12},
                 {INF,INF,INF,INF,INF,6,INF,INF,12,0} };
-int nearest[N];
-int distance[N];
+                //인접행렬
+int nearest[N]; //정점 중에서 Vi와 가장 가까운 정점
+int distance[N];//Vi와 nearest를 잇는 이음선의 가중치
 
 int minVertex() {
     int vertex;
@@ -28,20 +29,21 @@ int minVertex() {
     for (int i = 0; i < N; i++) {
         if (!nearest[i] && (distance[i] < distance[vertex]))
             vertex = i;
-    }
+    }   //선택하지 않은 간선들 중 최소 가중치 값을 갖는 정점을 찾는다.
 
     return vertex;
-}
+}   //최소 distance값을 갖는 정점을 반환
 void PRIMS() {
     int index;
 
     for (int index = 0; index < N; index++)
         distance[index] = INF;
     distance[7] = 0;
+    //시작점. 문제 1번은 시작점이 V1
 
     for (int i = 0; i < N; i++) {
         index = minVertex();
-        nearest[index] = -1;
+        nearest[index] = -1;    //지나간 경로 체크
 
         if (distance[index] == INF) return;
 
@@ -63,7 +65,7 @@ void PRINT() {
         }
         printf("\n");
     }
-}
+}   //출력 함수
 
 int main() {
     printf(">> Prim's Algorithm <<\n");
