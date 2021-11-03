@@ -28,6 +28,9 @@ bool isCycle(int a, int b) {
 }
 
 int main() {
+        printf(">> Kruskal's Algorithm <<\n");
+    printf("-------------------------\n");
+
     struct HEAP H[N];
     H[0] = {4,8,3};
     H[1] = {8,9,4};
@@ -43,20 +46,30 @@ int main() {
     H[11] = {2,5,45};
     H[12] = {7,8,59};
 
-    for (int i = 0; i < 10; i++) {
+    printf("Sorted Edges >> \n"); 
+    for (int i = 0; i < 13; i++)
         printf("(v%d, v%d) %d\n", H[i].from, H[i].to, H[i].value);
-    }
+    printf("-------------------------\n");
     
     for (int i = 1; i < 10; i++) set[i] = i; 
 
-    int total = 0;
+    int total = 0, index = 0;
+    HEAP MST[9];
     for (int i = 0; i < N; i++) {
         if (!isCycle(H[i].from, H[i].to)) {
             total += H[i].value;
+            MST[index] = H[i];
+            index++;
             unionParent(H[i].from, H[i].to);
         }
     }
 
+    printf("Minimum Spanning Tree >> \n"); 
+    for (int i = 0; i < 9; i++)
+        printf("(v%d, v%d) %d\n", MST[i].from, MST[i].to, MST[i].value);
+    printf("-------------------------\n");
+
+    printf("Minimum Distance >> "); 
     printf("%d\n", total);
 
     return 0;
