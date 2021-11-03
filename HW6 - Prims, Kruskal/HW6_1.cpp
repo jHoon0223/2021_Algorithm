@@ -45,7 +45,7 @@ void PRIMS() {
 
         if (distance[index] == INF) return;
 
-        printf("%d\n", index+1);
+        printf("%d ", index+1);
 
         for (int v = 0; v < N; v++) {
             if (W[index][v] != INF) {
@@ -55,8 +55,23 @@ void PRIMS() {
         }
     }
 }
+void PRINT() {
+    printf("Adjacent Matrix >> \n");
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            printf("%d ", W[i][j]);
+        }
+        printf("\n");
+    }
+}
 
 int main() {
+    printf(">> Prim's Algorithm <<\n");
+    printf("-------------------------\n");
+    PRINT();
+    printf("-------------------------\n");
+
+    printf("Minimum Spanning Tree >> \n"); 
     PRIMS();
 
     return 0;
