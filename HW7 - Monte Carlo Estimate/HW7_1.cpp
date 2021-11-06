@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <windows.h>
 
 #define N 8
 #define IterN 20
@@ -28,7 +29,7 @@ int MCE(int a) {
     int promisingChild[N];
     int idx = 0;
 
-    _sleep(1000);
+    Sleep(1000);
     srand(time(NULL));
 
     while(m!=0 && i < a) {
